@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BlackJack.Models
 {
-    public static class Deck
+    public static class DeckFactory
     {
         private static List<Card> deck { get; set; }
         public static List<Card> BuildDeck()
