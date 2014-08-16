@@ -11,10 +11,9 @@ namespace BlackJack.Controllers
         public ActionResult Index()
         {
            // ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Shoe testShoe = new Shoe(2);
+            Shoe testShoe = new Shoe(1);
             testShoe.FillShoe();
-            testShoe.Shuffle();
-            ViewBag.Message = testShoe.GetTopCard().ToString();
+            ViewBag.Message = testShoe.oneStandardDeck[0];
             return View();
         }
 

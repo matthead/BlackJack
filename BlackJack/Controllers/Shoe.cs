@@ -14,18 +14,17 @@ namespace BlackJack.Controllers
             {
                 shoe = new List<Models.Card>();
             }
+            oneStandardDeck = DeckFactory.BuildDeck();
             usedCards = new List<Models.Card>();
             SetLengthOfPlayableCards();
         }
         public void  FillShoe()
         {
-            foreach(Models.Card card in DeckFactory.BuildDeck())
+            for(int numberOfDeckIndex=0; numberOfDeckIndex<numberOfDecks;numberOfDeckIndex++)
             {
-                for(int numberOfDeckIndex=0; numberOfDeckIndex<numberOfDecks;numberOfDeckIndex++)
-                {
-                    shoe.Add(card);
-                }
+                shoe.AddRange(oneStandardDeck);
             }
+            shoe[0] = shoe[10];
         }
         public void Shuffle()
         {
@@ -48,7 +47,7 @@ namespace BlackJack.Controllers
         }
         private void SetLengthOfPlayableCards()
         {
-            sizeOfPlayableCards = Convert.ToInt32(DeckFactory.BuildDeck().Count * .8);
+            sizeOfPlayableCards = Convert.ToInt32(oneStandardDeck.Count * .8);
         }
         public  void AddUsedCardsBackIntoShoe()
         {
@@ -58,5 +57,6 @@ namespace BlackJack.Controllers
         private int numberOfDecks { get; set; }
         private List<Models.Card> usedCards;
         private int sizeOfPlayableCards { get; set; }
+        public List<Models.Card> oneStandardDeck { get; private set; }
     }
 }

@@ -23,6 +23,6 @@ namespace BlackJack.Controllers
             }
             return deck;
         }
-        private static List<Models.Card> deck;
+       private static List<Models.Card> deck { get;  set; }
     }
 }
