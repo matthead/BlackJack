@@ -7,7 +7,7 @@ namespace BlackJack.Models
 {
     public enum Suit
     {
-        Hearts,diamonds,clubs,spades
+        hearts,diamonds,clubs,spades
     };
     public enum FaceValue
     {
@@ -22,5 +22,9 @@ namespace BlackJack.Models
         }
         private Suit suit {get;set;}
         private FaceValue faceValue { get; set; }
+        public override string ToString()
+        {
+            return this.faceValue.ToString() + " of " + this.suit.ToString();
+        }
     }
 }

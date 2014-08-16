@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BlackJack.Models
+namespace BlackJack.Controllers
 {
     public static class DeckFactory
     {
-        private static List<Card> deck { get; set; }
-        public static List<Card> BuildDeck()
+
+        public static List<Models.Card> BuildDeck()
         {
-            foreach (Suit suit in Enum.GetValues(typeof(Suit)))
+            if (deck == null)
             {
-                foreach (FaceValue faceValue in Enum.GetValues(typeof(FaceValue)))
+                deck = new List<Models.Card>();
+            }
+            foreach (Models.Suit suit in Enum.GetValues(typeof(Models.Suit)))
+            {
+                foreach (Models.FaceValue faceValue in Enum.GetValues(typeof(Models.FaceValue)))
                 {
-                    deck.Add(new Card(suit, faceValue));
+                    deck.Add(new Models.Card(suit, faceValue));
                 }
             }
             return deck;
         }
+        private static List<Models.Card> deck;
     }
 }
