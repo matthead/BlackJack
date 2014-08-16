@@ -24,7 +24,6 @@ namespace BlackJack.Controllers
             {
                 shoe.AddRange(oneStandardDeck);
             }
-            shoe[0] = shoe[10];
         }
         public void Shuffle()
         {
@@ -57,6 +56,6 @@ namespace BlackJack.Controllers
         private int numberOfDecks { get; set; }
         private List<Models.Card> usedCards;
         private int sizeOfPlayableCards { get; set; }
-        public List<Models.Card> oneStandardDeck { get; private set; }
+        public List<Models.Card> oneStandardDeck { get;  set; }
     }
 }
