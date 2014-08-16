@@ -8,7 +8,7 @@ namespace BlackJack.Models.Interfaces
 {
     interface IShoe
     {
-        void FillShoe();
+        //void FillShoe();
         void Shuffle();
         Card GetTopCard();
         void AddUsedCardsBackIntoShoe();

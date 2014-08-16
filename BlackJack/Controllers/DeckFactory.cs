@@ -23,6 +23,7 @@ namespace BlackJack.Controllers
             }
             return deck;
         }
+       public const int deckSize = 52;
        private static List<Models.Card> deck { get;  set; }
     }
 }

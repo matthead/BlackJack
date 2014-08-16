@@ -21,7 +21,7 @@ namespace BlackJack.Models
             this.faceValue = faceValue;
         }
         private Suit suit {get;set;}
-        private FaceValue faceValue { get; set; }
+        public FaceValue faceValue { get; private set; }
         public override string ToString()
         {
             return this.faceValue.ToString() + " of " + this.suit.ToString();

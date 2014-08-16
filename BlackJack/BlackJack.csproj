@@ -183,6 +183,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Rules.cs" />
     <Compile Include="Controllers\Shoe.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,7 +192,9 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Controllers\DeckFactory.cs" />
+    <Compile Include="Models\Hand.cs" />
     <Compile Include="Models\Interfaces\IShoe.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

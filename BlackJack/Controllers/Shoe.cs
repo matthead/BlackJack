@@ -14,17 +14,12 @@ namespace BlackJack.Controllers
             {
                 shoe = new List<Models.Card>();
             }
-            oneStandardDeck = DeckFactory.BuildDeck();
+            List<Models.Card> oneStandardDeck = DeckFactory.BuildDeck();
+            FillShoe(ref oneStandardDeck);
             usedCards = new List<Models.Card>();
-            SetLengthOfPlayableCards();
+            SetLengthOfPlayableCardsForShoe();
         }
-        public void  FillShoe()
-        {
-            for(int numberOfDeckIndex=0; numberOfDeckIndex<numberOfDecks;numberOfDeckIndex++)
-            {
-                shoe.AddRange(oneStandardDeck);
-            }
-        }
+        
         public void Shuffle()
         {
             Random rand = new Random();
@@ -44,18 +39,25 @@ namespace BlackJack.Controllers
             shoe.RemoveAt(0);
             return usedCards.Last();
         }
-        private void SetLengthOfPlayableCards()
-        {
-            sizeOfPlayableCards = Convert.ToInt32(oneStandardDeck.Count * .8);
-        }
+        
         public  void AddUsedCardsBackIntoShoe()
         {
             shoe.AddRange(usedCards);
+        }
+        private void FillShoe(ref List<Models.Card> oneStandardDeck)
+        {
+            for (int numberOfDeckIndex = 0; numberOfDeckIndex < numberOfDecks; numberOfDeckIndex++)
+            {
+                shoe.AddRange(oneStandardDeck);
+            }
+        }
+        private void SetLengthOfPlayableCardsForShoe()
+        {
+            sizeOfPlayableCards = Convert.ToInt32(DeckFactory.deckSize * .8);
         }
         private List<Models.Card> shoe {get; set; }
         private int numberOfDecks { get; set; }
         private List<Models.Card> usedCards;
         private int sizeOfPlayableCards { get; set; }
-        public List<Models.Card> oneStandardDeck { get;  set; }
     }
 }
